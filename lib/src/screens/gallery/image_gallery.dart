@@ -1,3 +1,4 @@
+import 'package:cosmic_companion/src/widgets/cosmic_text/cosmic_text.dart';
 import 'package:flutter/material.dart';
 
 class ImageGallery extends StatefulWidget {
@@ -10,6 +11,16 @@ class ImageGallery extends StatefulWidget {
 }
 
 class _ImageGalleryState extends State<ImageGallery> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   List<String> imageUrls = [
     'https://www.samaa.tv/images/spacex.png',
     'https://www.samaa.tv/images/spacex.png',
@@ -24,7 +35,7 @@ class _ImageGalleryState extends State<ImageGallery> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Image Gallery'),
+        title: const CosmicText(text: 'Image Gallery'),
         automaticallyImplyLeading: false,
       ),
       body: Column(
@@ -73,10 +84,4 @@ class _ImageGalleryState extends State<ImageGallery> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: ImageGallery(),
-  ));
 }

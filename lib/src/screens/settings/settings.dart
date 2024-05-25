@@ -1,3 +1,4 @@
+import 'package:cosmic_companion/src/widgets/cosmic_text/cosmic_text.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -8,6 +9,16 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   // Sample user details
   final String _username = 'John Doe';
   final String _email = 'john.doe@example.com';
@@ -17,7 +28,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const CosmicText(text: 'Settings'),
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -25,34 +36,34 @@ class _SettingsState extends State<Settings> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
-              'User Details',
-              style: TextStyle(
+            const CosmicText(
+              text: 'User Details',
+              textStyle: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 20),
-            Text(
-              'Username: $_username',
-              style: const TextStyle(fontSize: 16),
+            CosmicText(
+              text: 'Username: $_username',
+              textStyle: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 10),
-            Text(
-              'Email: $_email',
-              style: const TextStyle(fontSize: 16),
+            CosmicText(
+              text: 'Email: $_email',
+              textStyle: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 10),
-            Text(
-              'Age: $_age',
-              style: const TextStyle(fontSize: 16),
+            CosmicText(
+              text: 'Age: $_age',
+              textStyle: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Add functionality here
               },
-              child: const Text('Edit Profile'),
+              child: const CosmicText(text: 'Edit Profile'),
             ),
           ],
         ),

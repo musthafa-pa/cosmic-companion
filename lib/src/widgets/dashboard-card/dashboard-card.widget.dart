@@ -1,4 +1,4 @@
-import 'package:cosmic_companion/src/constants/string_constants.dart';
+import 'package:cosmic_companion/src/widgets/cosmic_text/cosmic_text.dart';
 import 'package:flutter/material.dart';
 
 class DashboardCardWidget extends StatefulWidget {
@@ -19,6 +19,16 @@ class DashboardCardWidget extends StatefulWidget {
 }
 
 class _DashboardCardWidgetState extends State<DashboardCardWidget> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -53,9 +63,9 @@ class _DashboardCardWidgetState extends State<DashboardCardWidget> {
           Positioned(
             top: 20,
             left: 20,
-            child: Text(
-              widget.cardTitle,
-              style: const TextStyle(
+            child: CosmicText(
+              text: widget.cardTitle,
+              textStyle: const TextStyle(
                 color: Colors.white,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -69,7 +79,7 @@ class _DashboardCardWidgetState extends State<DashboardCardWidget> {
               onPressed: () {
                 widget.cardOnPress();
               },
-              child: Text(widget.buttonText),
+              child: CosmicText(text: widget.buttonText),
             ),
           ),
         ],
