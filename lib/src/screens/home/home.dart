@@ -1,4 +1,7 @@
-import 'package:cosmic_companion/src/constants/string_constants.dart';
+import 'package:cosmic_companion/src/navigation/routes.dart';
+import 'package:cosmic_companion/src/screens/dashboard/dashboard.dart';
+import 'package:cosmic_companion/src/screens/gallery/image_gallery.dart';
+import 'package:cosmic_companion/src/screens/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -9,22 +12,48 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<String> _items =
-      List<String>.generate(20, (index) => 'Item ${index + 1}');
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    const Dashboard(),
+    ImageGallery(),
+    ImageGallery(),
+    const Settings(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
-      appBar: AppBar(
-        title: Text(AppStrings.appTitle),
-      ),
-      body: ListView.builder(
-        itemCount: _items.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(_items[index]),
-          );
-        },
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: AppRouteLabels.home,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map),
+            label: AppRouteLabels.skyMap,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.image),
+            label: AppRouteLabels.gallery,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: AppRouteLabels.profile,
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: const Color.fromARGB(255, 1, 18, 32),
+        unselectedItemColor: const Color.fromARGB(255, 47, 47, 179),
+        onTap: _onItemTapped,
       ),
     ));
   }

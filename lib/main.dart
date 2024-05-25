@@ -22,8 +22,6 @@ void main() {
   );
 }
 
-//final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
 class CosmicCompanion extends StatefulWidget {
   const CosmicCompanion({super.key});
 
@@ -39,7 +37,6 @@ class _CosmicCompanionState extends State<CosmicCompanion> {
       initialRoute: AppRoutes.home,
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
-      // navigatorKey: navigatorKey,
     );
   }
 }
