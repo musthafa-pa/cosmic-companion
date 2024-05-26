@@ -38,8 +38,14 @@ class SatelliteCard extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
-                color: const Color.fromARGB(255, 60, 2, 248)
-                    .withOpacity(0.7), // Adjust opacity here
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFF13034D), // First color
+                    Color.fromARGB(255, 83, 18, 18), // Second color
+                  ],
+                ),
               ),
             ),
             Padding(

@@ -14,11 +14,19 @@ class SatelliteDetails extends StatefulWidget {
 }
 
 class _SatelliteDetailsState extends State<SatelliteDetails> {
-  String? selectedCountry = "India";
+  String? selectedCountry;
   bool isLoading = false;
 
   @override
   void initState() {
+    setState(() {
+      selectedCountry = "India";
+      isLoading = true;
+      Future.delayed(const Duration(seconds: 2), () {
+        isLoading = false;
+        setState(() {});
+      });
+    });
     super.initState();
   }
 
@@ -36,6 +44,13 @@ class _SatelliteDetailsState extends State<SatelliteDetails> {
         setState(() {});
       });
     });
+  }
+
+  void navigateSatelliteSummary(Map<String, String> satellite) {
+    Navigator.of(context).pushNamed(
+      AppRoutes.satelliteSummary,
+      arguments: satellite,
+    );
   }
 
   @override
@@ -93,7 +108,9 @@ class _SatelliteDetailsState extends State<SatelliteDetails> {
                       orbit: satellite['orbit']!,
                       additionalDetails: satellite['additionalDetails']!,
                       imageUrl: satellite['imageUrl']!,
-                      onPressed: () {},
+                      onPressed: () {
+                        navigateSatelliteSummary(satellite);
+                      },
                     );
                   },
                 ),
