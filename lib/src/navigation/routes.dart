@@ -8,6 +8,7 @@ class AppRoutes {
   static const rocketLaunches = "/rocket_launch_schedule";
   static const celestialObjects = "/celestial_objects";
   static const astronauts = "/astronauts";
+  static const satelliteSummary = "/satellite_summary";
 }
 
 class AppRouteLabels {
@@ -20,4 +21,5 @@ class AppRouteLabels {
   static const rocketLaunches = "Rocket Launch Schedule";
   static const celestialObjects = "Celestial Objects";
   static const astronauts = "Astronauts";
+  static const satelliteSummary = "Satellite Summary";
 }

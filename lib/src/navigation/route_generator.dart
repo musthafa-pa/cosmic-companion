@@ -6,6 +6,7 @@ import 'package:cosmic_companion/src/screens/home/home.dart';
 import 'package:cosmic_companion/src/screens/login/login.dart';
 import 'package:cosmic_companion/src/screens/rocket_launches/rocket_launches.dart';
 import 'package:cosmic_companion/src/screens/satellite_details/satellite_details.dart';
+import 'package:cosmic_companion/src/screens/satellite_summary/satellite_summary.dart';
 import 'package:cosmic_companion/src/screens/settings/settings.dart';
 import 'package:cosmic_companion/src/screens/skymap/skymap.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,11 @@ class RouteGenerator {
       case AppRoutes.satelliteDetails:
         const satelliteDetails = SatelliteDetails();
         return MaterialPageRoute(builder: (context) => satelliteDetails);
+      case AppRoutes.satelliteSummary:
+        final satelliteSummary = SatelliteSummary(
+          satellite: arguments as Map<String, String>,
+        );
+        return MaterialPageRoute(builder: (context) => satelliteSummary);
       case AppRoutes.rocketLaunches:
         const rocketLaunches = RocketLaunches();
         return MaterialPageRoute(builder: (context) => rocketLaunches);
