@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class SatelliteSummary extends StatefulWidget {
   final Map<String, String> satellite;
-
   const SatelliteSummary({super.key, required this.satellite});
 
   @override
@@ -19,7 +18,7 @@ class _SatelliteSummaryState extends State<SatelliteSummary> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 300.0,
+            expandedHeight: 150.0,
             pinned: true,
             iconTheme: const IconThemeData(
               color: Colors.white,
@@ -30,7 +29,7 @@ class _SatelliteSummaryState extends State<SatelliteSummary> {
                 text: satellite['name'] ?? '',
                 textStyle: const TextStyle(color: Colors.white),
               ),
-              background: Image.network(
+              background: Image.asset(
                 satellite['imageUrl'] ?? '',
                 fit: BoxFit.cover,
               ),
